@@ -6,6 +6,7 @@
 package weekendatberniescastle.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -18,7 +19,53 @@ public class Player implements Serializable {
     private double attack;
     private double defense;
     private double hitPoints;
+
+    // the constructor for the player
+
+    public Player() {
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + ", attack=" + attack + ", defense=" + defense + ", hitPoints=" + hitPoints + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.name);
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.attack) ^ (Double.doubleToLongBits(this.attack) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.defense) ^ (Double.doubleToLongBits(this.defense) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.hitPoints) ^ (Double.doubleToLongBits(this.hitPoints) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Player other = (Player) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.attack) != Double.doubleToLongBits(other.attack)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.defense) != Double.doubleToLongBits(other.defense)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.hitPoints) != Double.doubleToLongBits(other.hitPoints)) {
+            return false;
+        }
+        return true;
+    }
     
+    
+
     //getters and setters for the variables
 
     public String getName() {
