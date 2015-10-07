@@ -24,6 +24,8 @@ public class fightScene {
     public fightScene() {
     }
 
+    
+    //this converts the vars to strings for debuging the game.
     @Override
     public String toString() {
         return "fightScene{" + "description=" + description + ", fightType=" + fightType + ", monsterType=" + monsterType + ", numberOfMonsters=" + numberOfMonsters + '}';

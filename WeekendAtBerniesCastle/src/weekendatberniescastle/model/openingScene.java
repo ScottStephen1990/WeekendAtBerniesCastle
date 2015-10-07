@@ -22,6 +22,7 @@ public class openingScene {
     public openingScene() {
     }
 
+    //this converts the vars to strings for debuging the game.
     @Override
     public String toString() {
         return "openingScene{" + "description=" + description + '}';

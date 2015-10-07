@@ -22,6 +22,7 @@ public class puzzleScene {
     public puzzleScene() {
     }
 
+    //this converts the vars to strings for debuging the game.
     @Override
     public String toString() {
         return "puzzleScene{" + "description=" + description + ", puzzleType=" + puzzleType + '}';

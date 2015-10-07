@@ -5,7 +5,6 @@
  */
 package weekendatberniescastle.model;
 
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -13,25 +12,27 @@ import java.util.Objects;
  *
  * @author MIc
  */
-public class regularScene {
+public class game {
     
-    //varibles
-    private String description;
+    //variables
+    private double playTime;
     
-    //constructor
-    public regularScene() {
+    //consturctor
+    public game(double playTime) {
+        this.playTime = playTime;
     }
+    
+    //converts the var to a String for debuging
 
-    //this converts the vars to strings for debuging the game.
     @Override
     public String toString() {
-        return "regularScene{" + "description=" + description + '}';
+        return "game{" + "playTime=" + playTime + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.description);
+        hash = 71 * hash + (int) (Double.doubleToLongBits(this.playTime) ^ (Double.doubleToLongBits(this.playTime) >>> 32));
         return hash;
     }
 
@@ -43,21 +44,20 @@ public class regularScene {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final regularScene other = (regularScene) obj;
-        if (!Objects.equals(this.description, other.description)) {
+        final game other = (game) obj;
+        if (Double.doubleToLongBits(this.playTime) != Double.doubleToLongBits(other.playTime)) {
             return false;
         }
         return true;
     }
     
-    
-    //getters and setters
-    public String getDescription() {
-        return description;
+    //getter and setter
+    public double getPlayTime() {
+        return playTime;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPlayTime(double playTime) {
+        this.playTime = playTime;
     }
     
     
