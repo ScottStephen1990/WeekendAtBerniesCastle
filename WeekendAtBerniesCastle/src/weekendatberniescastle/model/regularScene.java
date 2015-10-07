@@ -19,10 +19,35 @@ public class regularScene {
     private String description;
     
     //constructor
-
     public regularScene() {
     }
-    
+
+    @Override
+    public String toString() {
+        return "regularScene{" + "description=" + description + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.description);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final regularScene other = (regularScene) obj;
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        return true;
+    }
     
     
     //getters and setters
