@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author MIc
  */
-public class openingScene {
+public class openingScene implements Serializable {
     
     //variables
     private String description;

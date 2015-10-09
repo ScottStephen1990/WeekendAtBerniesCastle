@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author MIc
  */
-public class map {
+public class map implements Serializable {
     
     //variables
     private double rowCount;

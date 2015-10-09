@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author MIc
  */
-public class regularScene {
+public class regularScene implements Serializable {
     
     //varibles
     private String description;

@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author MIc
  */
-public class location {
+public class location implements Serializable {
     
     //variables
     private double row;

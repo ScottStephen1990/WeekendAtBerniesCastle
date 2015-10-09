@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author MIc
  */
-public class fightScene {
+public class fightScene implements Serializable {
     
     // the instance variables
     private String description;

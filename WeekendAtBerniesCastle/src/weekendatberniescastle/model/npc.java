@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author MIc
  */
-public class npc {
+public class npc implements Serializable {
     
     //variables
     private String npcType;

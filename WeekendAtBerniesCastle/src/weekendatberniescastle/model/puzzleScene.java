@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author MIc
  */
-public class puzzleScene {
+public class puzzleScene implements Serializable {
     
     //variables
     private String description;

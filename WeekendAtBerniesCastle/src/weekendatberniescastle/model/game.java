@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author MIc
  */
-public class game {
+public class game implements Serializable {
     
     //variables
     private double playTime;
