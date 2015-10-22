@@ -32,4 +32,56 @@ public class PuzzleControl {
     
     }
 
+    public double cannonTarget (int xDeg, int yDeg) {
+        
+        //X values that don't work
+        if (xDeg > 360 || xDeg < 0) {
+            return -3;
+        }
+        if (xDeg > 360 || xDeg < 0) {
+            return -1;
+        }
+        //Y values that don't work
+        if (yDeg > 90 || yDeg < 0) {
+            return -3;
+        }
+        
+        int xAxes = 0;
+        int yAxes = 0;
+        
+        if (xDeg >= 95 && xDeg <= 100) {
+           xAxes = 1;
+        }
+        if (yDeg >= 10 && yDeg <= 15) {
+           yAxes = 0;
+        }
+        
+        if (xDeg >= 142 && xDeg <= 147) {
+           xAxes = 1;
+        }
+        if (yDeg >= 85 && yDeg <= 90) {
+           yAxes = 1;
+        }
+        
+        if (xDeg >= 121 && xDeg <= 125) {
+           xAxes = 2;
+        }
+        if (yDeg == 5) {
+           yAxes = 1;
+        }
+
+        int hit = xAxes + yAxes;
+        
+        if (hit == 3){
+            return hit;
+        }
+        if (hit == 2){
+            return hit;
+        }
+        if (hit == 1){
+            return hit;
+        }
+        return -2;
+    }
+    
 }

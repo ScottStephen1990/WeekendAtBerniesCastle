@@ -104,5 +104,71 @@ public class PuzzleControlTest {
         result = instance.checkBalance(redSand, whiteSand, blueSand);
         assertEquals(expResult, result, 0.0);
     }
+     /**
+     * Test of checkBalance method, of class PuzzleControl.
+     */
+    @Test
+    public void cannonTarget() {
+        System.out.println("cannonTarget");
+        
+        // test case 1
+        System.out.println("Test case 1");
+        int xDeg = 96;
+        int yDeg = 13;
+
+        PuzzleControl instance = new PuzzleControl();
+        int expResult = 1;
+        double result = instance.cannonTarget(xDeg, yDeg);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Test case 1 done, you hit target 1");
+        
+        // test case 2
+        System.out.println("Test case 2");
+        xDeg = 145;
+        yDeg = 88;
+
+        expResult = 2;
+        result = instance.cannonTarget(xDeg, yDeg);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Test case 2 done, you hit target 2");
+        
+        // test case 3
+        System.out.println("Test case 3");
+        xDeg = 123;
+        yDeg = 5;
+
+        expResult = 3;
+        result = instance.cannonTarget(xDeg, yDeg);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Test case 3 done, you hit target 3");
+        
+        // test case 5
+        System.out.println("Test case 5");
+        xDeg = 96;
+        yDeg = -1;
+
+        expResult = -3;
+        result = instance.cannonTarget(xDeg, yDeg);
+        assertEquals(expResult, result, 0.0);
+        
+        // test case 6
+        System.out.println("Test case 6");
+        xDeg = 361;
+        yDeg = 13;
+
+        expResult = -3;
+        result = instance.cannonTarget(xDeg, yDeg);
+        assertEquals(expResult, result, 0.0);
+        
+        // test case 7
+        System.out.println("Test case 7");
+        xDeg = 96;
+        yDeg = 91;
+
+        expResult = -3;
+        result = instance.cannonTarget(xDeg, yDeg);
+        assertEquals(expResult, result, 0.0);
+        
+    }
     
 }
