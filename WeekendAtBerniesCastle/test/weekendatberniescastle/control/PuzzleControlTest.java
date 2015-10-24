@@ -170,5 +170,68 @@ public class PuzzleControlTest {
         assertEquals(expResult, result, 0.0);
         
     }
+
+    /**
+     * Test of cannonTarget method, of class PuzzleControl.
+     */
+    @Test
+    public void testCannonTarget() {
+        System.out.println("cannonTarget");
+        int xDeg = 0;
+        int yDeg = 0;
+        PuzzleControl instance = new PuzzleControl();
+        double expResult = 0.0;
+        double result = instance.cannonTarget(xDeg, yDeg);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of checkBlocks method, of class PuzzleControl.
+     */
+    @Test
+    public void testCheckBlocks() {
+        // Test case 1
+        System.out.println("checkBlocks");
+        double diameter = 54;
+        PuzzleControl instance = new PuzzleControl();
+        double expResult = 2290.22;
+        double result = instance.checkBlocks(diameter);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        
+         // Test case 2
+        System.out.println("checkBlocks");
+        diameter = -1;
+        
+        expResult = -1;
+        result = instance.checkBlocks(diameter);
+        assertEquals(expResult, result, 0.0);
+        
+         // Test case 3
+        System.out.println("checkBlocks");
+        diameter = 99;
+        
+        expResult = -1;
+        result = instance.checkBlocks(diameter);
+        assertEquals(expResult, result, 0.0);
+        
+         // Test case 4
+        System.out.println("checkBlocks");
+        diameter = 1;
+        
+        expResult = -2;
+        result = instance.checkBlocks(diameter);
+        assertEquals(expResult, result, 0.0);
+        
+         // Test case 5
+        System.out.println("checkBlocks");
+        diameter = 98;
+        
+        expResult = -2;
+        result = instance.checkBlocks(diameter);
+        assertEquals(expResult, result, 0.0);
+    }
     
 }

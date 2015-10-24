@@ -84,4 +84,19 @@ public class PuzzleControl {
         return -2;
     }
     
+    public double checkBlocks(double diameter) {
+       
+        if (diameter < 1 || diameter > 98) {
+            return -1;
+        }
+        double raidius = diameter / 2;
+        double circumfrance = (Math.PI * Math.pow(raidius, 2));
+        circumfrance = Math.round(circumfrance*100.00) / 100.00;
+        
+        if (circumfrance != 2290.22) {
+            return -2;
+            
+        }
+        return circumfrance;
+    }
 }
