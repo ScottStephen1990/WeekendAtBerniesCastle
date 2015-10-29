@@ -108,7 +108,7 @@ public class PuzzleControlTest {
      * Test of checkBalance method, of class PuzzleControl.
      */
     @Test
-    public void cannonTarget() {
+    public void testcannonTarget() {
         System.out.println("cannonTarget");
         
         // test case 1
@@ -169,22 +169,6 @@ public class PuzzleControlTest {
         result = instance.cannonTarget(xDeg, yDeg);
         assertEquals(expResult, result, 0.0);
         
-    }
-
-    /**
-     * Test of cannonTarget method, of class PuzzleControl.
-     */
-    @Test
-    public void testCannonTarget() {
-        System.out.println("cannonTarget");
-        int xDeg = 0;
-        int yDeg = 0;
-        PuzzleControl instance = new PuzzleControl();
-        double expResult = 0.0;
-        double result = instance.cannonTarget(xDeg, yDeg);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
