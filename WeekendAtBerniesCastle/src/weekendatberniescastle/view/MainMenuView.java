@@ -69,7 +69,41 @@ public class MainMenuView {
         return choice;
     }
 
-    private void doAction(char selection) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void doAction(char choice) {
+        switch (choice) {
+            case 'G':
+                this.startNewGame();
+                break; 
+            case 'H':
+                this.displayHelpMenu();
+                break;
+            case 'S':
+                this.saveGame();
+                break;
+            case 'L':
+                this.loadSaveGame();
+                break;
+            case 'E':
+                return;
+            default:
+                System.out.println("\n*** Invalid Selection ***");
+                break;
+        }
+    }
+
+    private void startNewGame() {
+        System.out.println("\n*** New Game was selected ***");
+    }
+
+    private void displayHelpMenu() {
+        System.out.println("\n*** Help Menu was selected ***");
+    }
+
+    private void saveGame() {
+        System.out.println("\n*** save game was selected ***");
+    }
+
+    private void loadSaveGame() {
+        System.out.println("\n*** Load game was selected ***");
     }
 }
