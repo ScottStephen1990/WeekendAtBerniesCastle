@@ -6,6 +6,8 @@
 package weekendatberniescastle.view;
 
 import java.util.Scanner;
+import weekendatberniescastle.WeekendAtBerniesCastle;
+import weekendatberniescastle.control.GameControl;
 
 /**
  *
@@ -73,14 +75,26 @@ public class MainMenuView {
         switch (choice) {
             case 'G':
                 this.startNewGame();
-                break; 
+                break;
+            case 'g':
+                this.startNewGame();
+                break;
             case 'H':
+                this.displayHelpMenu();
+                break;
+            case 'h':
                 this.displayHelpMenu();
                 break;
             case 'S':
                 this.saveGame();
                 break;
+            case 's':
+                this.saveGame();
+                break;
             case 'L':
+                this.loadSaveGame();
+                break;
+            case 'l':
                 this.loadSaveGame();
                 break;
             case 'E':
@@ -92,7 +106,10 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
-        System.out.println("\n*** New Game was selected ***");
+        GameControl.createNewGame(WeekendAtBerniesCastle.getPlayer());
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
 
     private void displayHelpMenu() {
