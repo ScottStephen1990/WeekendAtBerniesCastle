@@ -5,6 +5,8 @@
  */
 package weekendatberniescastle.view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Stephen Scott
@@ -41,6 +43,33 @@ public class MainMenuView {
     }
 
     private String getInput() {
+        boolean valid = false;
+        String choice = null;
+        Scanner keyboard = new Scanner(System.in);
         
+        while(!valid){
+            
+            // prompt for the player's name
+            System.out.println("Lord Bernie would like you to select"
+                            +"\na menu option."
+                            +"\n"
+                            +"\nPlease enter your menu choice below (G, H, S, L, or E):");
+                           
+            choice = keyboard.nextLine();
+            choice = choice.trim();
+            
+            if (choice.length() < 1 || choice.length() >= 2) {
+                System.out.println("Invalid input - please input an"
+                                +"\nname option from the menu list");
+                continue;
+            }
+            break;
+        }
+        
+        return choice;
+    }
+
+    private void doAction(char selection) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
