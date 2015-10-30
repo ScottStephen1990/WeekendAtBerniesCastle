@@ -9,6 +9,7 @@ import java.util.Scanner;
 import weekendatberniescastle.control.ProgramControl;
 import weekendatberniescastle.model.Player;
 
+
 /**
  *
  * @author Phillip
@@ -25,7 +26,8 @@ public class StartProgramView {
         
         this.displayWelcomeMessage(player);
         
-        
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.displayMenu();
     }  
 
     private void displayBanner() {
@@ -70,7 +72,7 @@ public class StartProgramView {
         
         return playersName;
     } 
-
+    //welcome Message with players name
     private void displayWelcomeMessage(Player player) {
         System.out.println("\n\n######################################################");
         System.out.println("\tWelcome to Bernie's Castle " + player.getName());
