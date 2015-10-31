@@ -113,7 +113,7 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        System.out.println("\n*** Help Menu was selected ***");
+        HelpMenuView.helpMenu();
     }
 
     private void saveGame() {
