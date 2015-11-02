@@ -37,7 +37,7 @@ public class MainMenuView {
             String input = this.getInput();
             selection = input.charAt(0);
             
-            this.doAction(selection);
+                this.doAction(selection);
             
         } while (selection != 'E');
     }
