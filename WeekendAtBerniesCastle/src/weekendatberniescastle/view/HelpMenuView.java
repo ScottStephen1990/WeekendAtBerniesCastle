@@ -8,6 +8,9 @@ package weekendatberniescastle.view;
 
 import java.util.Scanner;
 import weekendatberniescastle.WeekendAtBerniesCastle;
+import weekendatberniescastle.control.GameControl;
+import weekendatberniescastle.view.StartProgramView;
+
 /**
  *
  * @author MIc
@@ -18,7 +21,7 @@ public class HelpMenuView {
         
     }
     
-    private final String MENUHELP = "\n"
+    private static final String MENUHELP = "\n"
             + "\n***************************************"
             + "\n*** Help Menu                       ***"
             + "\n***************************************"
@@ -28,18 +31,20 @@ public class HelpMenuView {
             + "\n*** R - Return to game              ***"
             + "\n***************************************";
     
-    static void helpMenu() {
+    public void helpMenu() {
         char selection = ' ';
         do {
             
             System.out.println(MENUHELP);
             
             String input = this.getInput();
+            input = input.toUpperCase();
             selection = input.charAt(0);
+            
             
             this.doAction(selection);
             
-        } while (selection != 'E');
+        } while (selection != 'R');
              
             
         }
@@ -74,29 +79,48 @@ public class HelpMenuView {
     private void doAction(char choice) {
         switch (choice) {
             case 'A':
-                
+                this.goalHelp();
                 break;
-            case 'a':
-                
-                break;
+           
             case 'B':
-                
-                break;
-            case 'b':
-                
-                break;
-            case 'C':
-                
-                break;
-            case 'c':
-                
+                this.movementHelp();
                 break;
             
+            case 'C':
+                this.itemsHelp();
+                break;
+            
+            
             case 'R':
-                return;
+                MainMenuView mainMenu = new MainMenuView();
+                mainMenu.displayMenu();
             default:
                 System.out.println("\n*** Invalid Selection ***");
                 break;
         }
     }    
+
+    private void goalHelp() {
+        System.out.println("\n\nThe goal of this game is to gather the items needed to defeat"
+                       + "\nLord Bernie. The items are located in the five wings of the"
+                       + "\ncastle. In order to obtain the items you will have to solve"
+                       + "\nthe puzzles at the end of each wing. After you have all the"
+                       + "\nitems you can face and hopefully defeat Lord Bernie.");
+        
+        this.helpMenu();
+        
+    }
+
+    private void movementHelp() {
+        System.out.println("\n\nFrom the game menu choo the movement option. Then select one"
+                       + "\nof the available options in the movement menu.");
+        this.helpMenu();
+    }   
+    
+    private void itemsHelp() {
+        System.out.println("\n\nThere are five items that you need to collect. The sword, the"
+                       + "\nshield, the boots of haste, the key, and the breastplate.");
+        this.helpMenu();
+        
+    }
 }
