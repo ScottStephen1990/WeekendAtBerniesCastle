@@ -6,6 +6,8 @@
 package weekendatberniescastle.view;
 
 import java.util.Scanner;
+import weekendatberniescastle.WeekendAtBerniesCastle;
+import weekendatberniescastle.control.GameControl;
 
 /**
  *
@@ -69,7 +71,56 @@ public class MainMenuView {
         return choice;
     }
 
-    private void doAction(char selection) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void doAction(char choice) {
+        switch (choice) {
+            case 'G':
+                this.startNewGame();
+                break;
+            case 'g':
+                this.startNewGame();
+                break;
+            case 'H':
+                this.displayHelpMenu();
+                break;
+            case 'h':
+                this.displayHelpMenu();
+                break;
+            case 'S':
+                this.saveGame();
+                break;
+            case 's':
+                this.saveGame();
+                break;
+            case 'L':
+                this.loadSaveGame();
+                break;
+            case 'l':
+                this.loadSaveGame();
+                break;
+            case 'E':
+                return;
+            default:
+                System.out.println("\n*** Invalid Selection ***");
+                break;
+        }
+    }
+
+    private void startNewGame() {
+        GameControl.createNewGame(WeekendAtBerniesCastle.getPlayer());
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
+    }
+
+    private void displayHelpMenu() {
+        HelpMenuView.helpMenu();
+    }
+
+    private void saveGame() {
+        System.out.println("\n*** save game was selected ***");
+    }
+
+    private void loadSaveGame() {
+        System.out.println("\n*** Load game was selected ***");
     }
 }
