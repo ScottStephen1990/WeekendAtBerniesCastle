@@ -92,8 +92,7 @@ public class HelpMenuView {
             
             
             case 'R':
-                MainMenuView mainMenu = new MainMenuView();
-                mainMenu.displayMenu();
+                return;
             default:
                 System.out.println("\n*** Invalid Selection ***");
                 break;
@@ -107,20 +106,19 @@ public class HelpMenuView {
                        + "\nthe puzzles at the end of each wing. After you have all the"
                        + "\nitems you can face and hopefully defeat Lord Bernie.");
         
-        this.helpMenu();
+        
         
     }
 
     private void movementHelp() {
         System.out.println("\n\nFrom the game menu choo the movement option. Then select one"
                        + "\nof the available options in the movement menu.");
-        this.helpMenu();
+       
     }   
     
     private void itemsHelp() {
         System.out.println("\n\nThere are five items that you need to collect. The sword, the"
                        + "\nshield, the boots of haste, the key, and the breastplate.");
-        this.helpMenu();
-        
+                
     }
 }
