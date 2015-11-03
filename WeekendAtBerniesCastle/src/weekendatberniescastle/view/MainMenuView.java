@@ -9,6 +9,7 @@ import java.util.Scanner;
 import weekendatberniescastle.WeekendAtBerniesCastle;
 import weekendatberniescastle.control.GameControl;
 
+
 /**
  *
  * @author Stephen Scott
@@ -37,9 +38,10 @@ public class MainMenuView {
             System.out.println(MENU);
             
             String input = this.getInput();
+            input = input.toUpperCase();
             selection = input.charAt(0);
             
-            this.doAction(selection);
+                this.doAction(selection);
             
         } while (selection != 'E');
     }
@@ -112,8 +114,9 @@ public class MainMenuView {
         gameMenu.displayMenu();
     }
 
-    private void displayHelpMenu() {
-        HelpMenuView.helpMenu();
+    public void displayHelpMenu() {
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.helpMenu();
     }
 
     private void saveGame() {
