@@ -7,7 +7,7 @@ package weekendatberniescastle.view;
 
 
 import java.util.Scanner;
-import weekendatberniescastle.WeekendAtBerniesCastle;
+
 /**
  *
  * @author MIc
