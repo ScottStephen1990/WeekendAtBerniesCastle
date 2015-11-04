@@ -29,6 +29,7 @@ public class HelpMenuView {
             + "\n*** B - How to move around the game ***"
             + "\n*** C - What Items will you need?   ***"
             + "\n*** R - Return to game              ***"
+            + "\n*** T - test the move menu          ***"
             + "\n***************************************";
     
     public void helpMenu() {
@@ -90,6 +91,8 @@ public class HelpMenuView {
                 this.itemsHelp();
                 break;
             
+            case 'T':
+                this.displayMoveMenu();
             
             case 'R':
                 return;
@@ -120,5 +123,10 @@ public class HelpMenuView {
         System.out.println("\n\nThere are five items that you need to collect. The sword, the"
                        + "\nshield, the boots of haste, the key, and the breastplate.");
                 
+    }
+    
+    public void displayMoveMenu() {
+        MoveMenuView moveMenu = new MoveMenuView();
+        moveMenu.moveMenu();
     }
 }
