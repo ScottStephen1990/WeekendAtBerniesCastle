@@ -28,6 +28,7 @@ public class MoveMenuView {
             + "\n*** B - Head to the door labeled blocks ***"
             + "\n*** M - Head to the door labeled Make   ***"
             + "\n*** C - Head to the door labeled Cannon ***"
+            + "\n*** E - Head to the dorr labeled Bernies***"
             + "\n*** R - open the main menu              ***"
             + "\n*******************************************";
     
@@ -94,6 +95,10 @@ public class MoveMenuView {
                 System.out.println("C was slected");
                 break;
             
+            case 'E':
+                System.out.println("E was slected");
+                break;
+                
             case 'R':
                 return;
             default:
