@@ -47,7 +47,7 @@ public class HelpMenuView {
         } while (selection != 'R');
              
             
-        }
+    }
 
     private String getInput() {
         boolean valid = false;

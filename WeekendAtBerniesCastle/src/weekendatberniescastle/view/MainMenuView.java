@@ -78,27 +78,19 @@ public class MainMenuView {
             case 'G':
                 this.startNewGame();
                 break;
-            case 'g':
-                this.startNewGame();
-                break;
+            
             case 'H':
                 this.displayHelpMenu();
                 break;
-            case 'h':
-                this.displayHelpMenu();
-                break;
+            
             case 'S':
                 this.saveGame();
                 break;
-            case 's':
-                this.saveGame();
-                break;
+            
             case 'L':
                 this.loadSaveGame();
                 break;
-            case 'l':
-                this.loadSaveGame();
-                break;
+            
             case 'E':
                 return;
             default:

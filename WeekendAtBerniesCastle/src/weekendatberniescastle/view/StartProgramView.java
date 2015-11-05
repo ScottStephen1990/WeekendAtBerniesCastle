@@ -35,7 +35,7 @@ public class StartProgramView {
         
         System.out.println("*                                              *"
                        + "\n* Welcome to your weekend at Bernie's Castle.  *"
-                       + "\n* Your adventurous weekend is now begging. I'm *"
+                       + "\n* Your adventurous weekend is now begining. I'm *"
                        + "\n* sure you will enjoy all the amenities we have*"
                        + "\n* provided for your entertainment. Our Lord    *"
                        + "\n* Bernie is excited to finally eat... I mean   *"
