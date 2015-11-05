@@ -13,13 +13,8 @@ import java.util.Scanner;
  */
 public class GameMenuView {
     
-    public final static String GAMEMENUDESCRIPTION = "***********************************************************"
-                                               + "\n\nYou find yourself in the foyer of Lord Bernie's Castle. You"
-                                               + "\nsee 5 different doors leading apart from the behemoth wooden"
-                                               + "\ntest the main entrance and find that the doors have been"
-                                               + "\nmagically sealed shut. You hear a voice. 'Choose now a path"
-                                               + "\nfrom one of these doors. Solve my puzzles and you may escape"
-                                               + "\n... alive. Muahaha!'"
+    public final static String GAMEMENUDESCRIPTION = "\n***********************************************************"
+                                               
                                                + "\n\nPlease select one of the following options:"
                                                + "\nA - Check Inventory"
                                                + "\nS - Move"
@@ -85,11 +80,11 @@ public class GameMenuView {
                 this.checkInventory();
                 break;
            
-            case 'B':
+            case 'S':
                 this.move();
                 break;
             
-            case 'C':
+            case 'D':
                 this.help();
                 break;
             

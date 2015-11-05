@@ -102,8 +102,8 @@ public class MainMenuView {
     private void startNewGame() {
         GameControl.createNewGame(WeekendAtBerniesCastle.getPlayer());
         
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        MainRoomView mainRoom = new MainRoomView();
+        mainRoom.mainRoomView();
     }
 
     public void displayHelpMenu() {

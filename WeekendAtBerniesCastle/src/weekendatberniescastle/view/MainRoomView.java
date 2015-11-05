@@ -7,9 +7,28 @@ package weekendatberniescastle.view;
 
 /**
  *
- * @author Phillip
+ * @author Stephen
  */
 public class MainRoomView {
     
+    public void mainRoomView() {
     
+        this.displayDescription();
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
+        
+    }
+
+    
+    
+    public void displayDescription () {
+        System.out.println("\n\nYou find yourself in the foyer of Lord Bernie's Castle. You"
+                           + "\nsee 5 different doors leading apart from the behemoth wooden"
+                           + "\ntest the main entrance and find that the doors have been"
+                           + "\nmagically sealed shut. You hear a voice. 'Choose now a path"
+                           + "\nfrom one of these doors. Solve my puzzles and you may escape"
+                           + "\n... alive. Muahaha!'");
+    }
+            
 }
