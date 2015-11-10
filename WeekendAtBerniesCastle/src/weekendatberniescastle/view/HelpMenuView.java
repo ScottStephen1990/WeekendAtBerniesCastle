@@ -29,7 +29,6 @@ public class HelpMenuView {
             + "\n*** B - How to move around the game ***"
             + "\n*** C - What Items will you need?   ***"
             + "\n*** R - Return to game              ***"
-            + "\n*** T - test the move menu          ***"
             + "\n***************************************";
     
     public void helpMenu() {
@@ -91,9 +90,6 @@ public class HelpMenuView {
                 this.itemsHelp();
                 break;
             
-            case 'T':
-                this.displayMoveMenu();
-            
             case 'R':
                 return;
             default:
@@ -125,8 +121,5 @@ public class HelpMenuView {
                 
     }
     
-    public void displayMoveMenu() {
-        MoveMenuView moveMenu = new MoveMenuView();
-        moveMenu.moveMenu();
-    }
+
 }
