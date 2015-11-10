@@ -26,12 +26,12 @@ public class PuzzleControlTest {
         
         // test case 1
         System.out.println("Test case 1");
-        double redSand = 4;
-        double whiteSand = 6;
-        double blueSand = 2;
+        int redSand = 4;
+        int whiteSand = 6;
+        int blueSand = 2;
         PuzzleControl instance = new PuzzleControl();
-        double expResult = 22;
-        double result = instance.checkBalance(redSand, whiteSand, blueSand);
+        int expResult = 22;
+        int result = PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
         assertEquals(expResult, result, 0.0);
         
         // test case 2
@@ -41,7 +41,7 @@ public class PuzzleControlTest {
         blueSand = 2;
         
         expResult = -2;
-        result = instance.checkBalance(redSand, whiteSand, blueSand);
+        result = PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
         assertEquals(expResult, result, 0.0);
         
         // test case 3
@@ -51,7 +51,7 @@ public class PuzzleControlTest {
         blueSand = 7;
         
         expResult = -1;
-        result = instance.checkBalance(redSand, whiteSand, blueSand);
+        result = PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
         assertEquals(expResult, result, 0.0);
         
         // test case 4
@@ -61,7 +61,7 @@ public class PuzzleControlTest {
         blueSand = -7;
         
         expResult = -1;
-        result = instance.checkBalance(redSand, whiteSand, blueSand);
+        result = PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
         assertEquals(expResult, result, 0.0);
         
         // test case 5
@@ -71,7 +71,7 @@ public class PuzzleControlTest {
         blueSand = 3;
         
         expResult = -1;
-        result = instance.checkBalance(redSand, whiteSand, blueSand);
+        result = PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
         assertEquals(expResult, result, 0.0);
         
         // test case 6
@@ -81,7 +81,7 @@ public class PuzzleControlTest {
         blueSand = 22;
         
         expResult = -1;
-        result = instance.checkBalance(redSand, whiteSand, blueSand);
+        result = PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
         assertEquals(expResult, result, 0.0);
         
         // test case 7
@@ -91,7 +91,7 @@ public class PuzzleControlTest {
         blueSand = 0;
         
         expResult = -2;
-        result = instance.checkBalance(redSand, whiteSand, blueSand);
+        result = PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
         assertEquals(expResult, result, 0.0);
         
          // test case 8
@@ -101,7 +101,7 @@ public class PuzzleControlTest {
         blueSand = 12;
         
         expResult = -2;
-        result = instance.checkBalance(redSand, whiteSand, blueSand);
+        result = PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
         assertEquals(expResult, result, 0.0);
     }
      /**

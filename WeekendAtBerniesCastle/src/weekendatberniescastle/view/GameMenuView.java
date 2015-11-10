@@ -98,7 +98,8 @@ public class GameMenuView {
     }    
 
     private void move() {
-        System.out.println("The Move function is currently unavailable");
+        MoveMenuView moveMenu = new MoveMenuView();
+        moveMenu.moveMenu();
     }
 
     private void help() {

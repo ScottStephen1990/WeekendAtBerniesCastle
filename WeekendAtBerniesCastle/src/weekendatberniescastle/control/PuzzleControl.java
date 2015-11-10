@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package weekendatberniescastle.control;
+import weekendatberniescastle.view.SandPuzzleView;
 
 /**
  *
@@ -11,7 +12,7 @@ package weekendatberniescastle.control;
  */
 public class PuzzleControl {
           
-    public double checkBalance(double redSand, double whiteSand, double blueSand) {
+    public static int checkBalance(int redSand, int whiteSand, int blueSand) {
          
         
         if (redSand < 0 || redSand > 12) {
@@ -23,7 +24,7 @@ public class PuzzleControl {
 	if (whiteSand < 0 || whiteSand > 12) {
 		return -1;
         }
-	double balance = (redSand * 2) + whiteSand + (blueSand * 4);
+	int balance = (redSand * 2) + whiteSand + (blueSand * 4);
 	
         if (balance != 22) {
 		return -2;

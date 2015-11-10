@@ -80,7 +80,9 @@ public class MoveMenuView {
     private void doAction(char choice) {
         switch (choice) {
             case 'S':
-                System.out.println("S was slected");
+                SandPuzzleView sandPuzzle = new SandPuzzleView();
+                sandPuzzle.doAction();
+    
                 break;
            
             case 'B':
