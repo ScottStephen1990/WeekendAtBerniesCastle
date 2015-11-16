@@ -14,13 +14,11 @@ import weekendatberniescastle.control.GameControl;
  *
  * @author Stephen Scott
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
-    public void startProgram() {
-        
-    }
-
-    private final String MENU = "\n"
+    public MainMenuView() {
+    
+            super("\n"
             + "\n**************************"
             + "\n*** Main Menu          ***"
             + "\n**************************"
@@ -29,52 +27,16 @@ public class MainMenuView {
             + "\n*** S - Save           ***"
             + "\n*** L - Load           ***"
             + "\n*** E - Exit           ***"
-            + "\n**************************";
+            + "\n**************************");
     
-    public void displayMenu() {
-        char selection = ' ';
-        do {
-            
-            System.out.println(MENU);
-            
-            String input = this.getInput();
-            input = input.toUpperCase();
-            selection = input.charAt(0);
-            
-                this.doAction(selection);
-            
-        } while (selection != 'E');
     }
 
-    private String getInput() {
-        boolean valid = false;
-        String choice = null;
-        Scanner keyboard = new Scanner(System.in);
+    
+    @Override
+    public boolean doAction(Object obj) {
+        char value = (char) obj;
         
-        while(!valid){
-            
-            // prompt for the player's name
-            System.out.println("Lord Bernie would like you to select"
-                            +"\na menu option."
-                            +"\n"
-                            +"\nPlease enter your menu choice below (G, H, S, L, or E):");
-                           
-            choice = keyboard.nextLine();
-            choice = choice.trim();
-            
-            if (choice.length() < 1 || choice.length() >= 2) {
-                System.out.println("Invalid input - please input an"
-                                +"\nname option from the menu list");
-                continue;
-            }
-            break;
-        }
-        
-        return choice;
-    }
-
-    private void doAction(char choice) {
-        switch (choice) {
+        switch (value) {
             case 'G':
                 this.startNewGame();
                 break;
@@ -92,11 +54,12 @@ public class MainMenuView {
                 break;
             
             case 'E':
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid Selection ***");
                 break;
         }
+        return false;
     }
 
     private void startNewGame() {
@@ -118,4 +81,6 @@ public class MainMenuView {
     private void loadSaveGame() {
         System.out.println("\n*** Load game was selected ***");
     }
+
+    
 }

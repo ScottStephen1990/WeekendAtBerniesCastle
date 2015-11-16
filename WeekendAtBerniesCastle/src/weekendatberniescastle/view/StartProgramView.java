@@ -27,7 +27,7 @@ public class StartProgramView {
         this.displayWelcomeMessage(player);
         
         MainMenuView mainMenu = new MainMenuView();
-        mainMenu.displayMenu();
+        mainMenu.display();
     }  
 
     private void displayBanner() {
