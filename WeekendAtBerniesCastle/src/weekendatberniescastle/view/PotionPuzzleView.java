@@ -11,9 +11,9 @@ import weekendatberniescastle.control.PuzzleControl;
  *
  * @author MIc
  */
-public class BlockPuzzleView {
+public class PotionPuzzleView {
     
-    public void blockPuzzleView(){
+    public void potionPuzzleView(){
         
         this.displayDescription();
         
