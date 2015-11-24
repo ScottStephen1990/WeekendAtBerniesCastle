@@ -15,13 +15,13 @@ import weekendatberniescastle.view.StartProgramView;
  *
  * @author MIc
  */
-public class HelpMenuView {
+public class HelpMenuView extends View {
 
-    public void startHelp() {
+    public HelpMenuView() {
         
-    }
     
-    private static final String MENUHELP = "\n"
+    
+    super ("\n"
             + "\n***************************************"
             + "\n*** Help Menu                       ***"
             + "\n***************************************"
@@ -29,54 +29,15 @@ public class HelpMenuView {
             + "\n*** B - How to move around the game ***"
             + "\n*** C - What Items will you need?   ***"
             + "\n*** R - Return to game              ***"
-            + "\n***************************************";
+            + "\n***************************************");
     
-    public void helpMenu() {
-        char selection = ' ';
-        do {
-            
-            System.out.println(MENUHELP);
-            
-            String input = this.getInput();
-            input = input.toUpperCase();
-            selection = input.charAt(0);
-            
-            
-            this.doAction(selection);
-            
-        } while (selection != 'R');
-             
-            
     }
 
-    private String getInput() {
-        boolean valid = false;
-        String choice = null;
-        Scanner keyboard = new Scanner(System.in);
+   
+    @Override
+    public boolean doAction(Object obj) {
         
-        while(!valid){
-            
-            // prompt for the player's name
-            System.out.println("Lord Bernie would like you to select"
-                            +"\na menu option."
-                            +"\n"
-                            +"\nPlease enter your menu choice below (A, B, C, or R):");
-                           
-            choice = keyboard.nextLine();
-            choice = choice.trim();
-            
-            if (choice.length() < 1 || choice.length() >= 2) {
-                System.out.println("Invalid input - please input an"
-                                +"\nname option from the menu list");
-                continue;
-            }
-            break;
-        }
-        
-        return choice;
-    }
-
-    private void doAction(char choice) {
+        char choice = (char) obj;
         switch (choice) {
             case 'A':
                 this.goalHelp();
@@ -91,11 +52,12 @@ public class HelpMenuView {
                 break;
             
             case 'R':
-                return;
+                
             default:
                 System.out.println("\n*** Invalid Selection ***");
                 break;
         }
+        return false;
     }    
 
     private void goalHelp() {

@@ -66,12 +66,12 @@ public class MainMenuView extends View {
         GameControl.createNewGame(WeekendAtBerniesCastle.getPlayer());
         
         MainRoomView mainRoom = new MainRoomView();
-        mainRoom.mainRoomView();
+        mainRoom.display();
     }
 
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.helpMenu();
+        helpMenu.display();
     }
 
     private void saveGame() {

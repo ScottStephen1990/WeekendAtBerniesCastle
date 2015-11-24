@@ -11,103 +11,55 @@ import java.util.Scanner;
  *
  * @author Stephen Scott
  */
-public class GameMenuView {
-    
-    public final static String GAMEMENUDESCRIPTION = "\n***********************************************************"
-                                               
-                                               + "\n\nPlease select one of the following options:"
-                                               + "\nA - Check Inventory"
-                                               + "\nS - Move"
-                                               + "\nD - Help"
-                                               + "\nR - Exit to Main Menu";
-        
-       
-    
-    
-    
+public class GameMenuView extends View {
 
-    public void displayMenu() {
-        char selection = ' ';
-        do {
-            
-            System.out.println(GAMEMENUDESCRIPTION);
-            
-            String input = this.getInput();
-            input = input.toUpperCase();
-            selection = input.charAt(0);
-            
-            
-            this.doAction(selection);
-            
-        } while (selection != 'R');
-             
-            
+    public GameMenuView() {
+        super("\n***********************************************************"
+                + "\n\nPlease select one of the following options:"
+                + "\nA - Check Inventory"
+                + "\nS - Move"
+                + "\nD - Help"
+                + "\nR - Exit to Main Menu");
+
     }
     
-    
-    
-    
-    private String getInput() {
-        boolean valid = false;
-        String choice = null;
-        Scanner keyboard = new Scanner(System.in);
+    @Override
+    public boolean doAction(Object obj) {
         
-        while(!valid){
-            
-            // prompt for the player's name
-            System.out.println("Lord Bernie would like you to select"
-                            +"\na menu option."
-                            +"\n"
-                            +"\nPlease enter your menu choice below (A, S, D, or R):");
-                           
-            choice = keyboard.nextLine();
-            choice = choice.trim();
-            
-            if (choice.length() < 1 || choice.length() >= 2) {
-                System.out.println("Invalid input - please input an"
-                                +"\nname option from the menu list");
-                continue;
-            }
-            break;
-        }
-        
-        return choice;
-    }
-
-    private void doAction(char choice) {
+        char choice = (char) obj;
         switch (choice) {
             case 'A':
                 this.checkInventory();
                 break;
-           
+
             case 'S':
                 this.move();
                 break;
-            
+
             case 'D':
                 this.help();
                 break;
-            
-            
+
             case 'R':
-                return;
+                
             default:
                 System.out.println("\n*** Invalid Selection ***");
                 break;
         }
-    }    
+        return false;
+    }
 
-    private void move() {
+    public void move() {
         MoveMenuView moveMenu = new MoveMenuView();
         moveMenu.moveMenu();
     }
 
-    private void help() {
+    public void help() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.helpMenu();
+        helpMenu.display();
     }
 
-    private void checkInventory() {
-       System.out.println("The Inventory Function is currently unavailable");
+    public void checkInventory() {
+        System.out.println("The Inventory Function is currently unavailable");
     }
 }
