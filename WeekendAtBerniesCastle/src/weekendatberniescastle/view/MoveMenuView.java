@@ -28,8 +28,9 @@ public class MoveMenuView {
             + "\n*** B - Head to the door labeled blocks ***"
             + "\n*** M - Head to the door labeled Make   ***"
             + "\n*** C - Head to the door labeled Cannon ***"
+            + "\n*** R - Head to the door with a ? on it.***"
             + "\n*** E - Head to the dorr labeled Bernies***"
-            + "\n*** R - open the main menu              ***"
+            + "\n*** O - open the main menu              ***"
             + "\n*******************************************";
     
     public void moveMenu() {
@@ -80,28 +81,39 @@ public class MoveMenuView {
     private void doAction(char choice) {
         switch (choice) {
             case 'S':
+                
                 SandPuzzleView sandPuzzle = new SandPuzzleView();
                 sandPuzzle.doAction();
     
                 break;
            
             case 'B':
-                System.out.println("B was slected");
+                
+                BlockPuzzleView blockPuzzle = new BlockPuzzleView();
+                blockPuzzle.doAction();
+                
                 break;
             
             case 'M':
-                System.out.println("M was slected");
+                
+                PotionPuzzleView potionPuzzle = new PotionPuzzleView();
+                potionPuzzle.doAction();
+                
                 break;
             
             case 'C':
                 System.out.println("C was slected");
                 break;
             
+            case 'R':
+                System.out.println("R was slected");
+                break;
+                
             case 'E':
                 System.out.println("E was slected");
                 break;
                 
-            case 'R':
+            case 'O':
                 return;
             default:
                 System.out.println("\n*** Invalid Selection ***");
