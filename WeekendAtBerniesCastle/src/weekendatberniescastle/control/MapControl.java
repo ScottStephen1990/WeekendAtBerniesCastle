@@ -11,4 +11,6 @@ package weekendatberniescastle.control;
  */
 public class MapControl {
     
+    
+    
 }
