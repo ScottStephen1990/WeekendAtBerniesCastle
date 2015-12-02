@@ -5,32 +5,35 @@
  */
 package weekendatberniescastle.control;
 import weekendatberniescastle.view.SandPuzzleView;
+import weekendatberniescastle.exxeptions.PuzzleContorlException;
 
 /**
  *
  * @author Stephen Scott
  */
+
 public class PuzzleControl {
           
-    public static int checkBalance(int redSand, int whiteSand, int blueSand) {
+    public static boolean checkBalance(int redSand, int whiteSand, int blueSand) throws PuzzleContorlException {
          
         
         if (redSand < 0 || redSand > 12) {
-		return -1;
+		throw new PuzzleContorlException("Not a valid amout of sand to put on the scale.");
         }        
 	 if (blueSand < 0 || blueSand > 12) {
-		return -1;
+		throw new PuzzleContorlException("Not a valid amout of sand to put on the scale.");
         }
 	if (whiteSand < 0 || whiteSand > 12) {
-		return -1;
+		throw new PuzzleContorlException("Not a valid amout of sand to put on the scale.");
         }
 	int balance = (redSand * 2) + whiteSand + (blueSand * 4);
 	
-        if (balance != 22) {
-		return -2;
-        }
-	return balance;
-    
+                if (balance == 22){
+            return true;
+            }else if(balance != 22) {
+		throw new PuzzleContorlException(balance + " is not the right amout of sand, please try agin.");
+            }
+        return true;
     }
 
     public double cannonTarget (int xDeg, int yDeg) {

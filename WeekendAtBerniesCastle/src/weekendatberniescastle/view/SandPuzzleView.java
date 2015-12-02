@@ -7,6 +7,7 @@ package weekendatberniescastle.view;
 import java.util.Scanner;
 import weekendatberniescastle.WeekendAtBerniesCastle;
 import weekendatberniescastle.control.PuzzleControl;
+import weekendatberniescastle.exxeptions.PuzzleContorlException;
 
 /**
  *
@@ -23,8 +24,8 @@ public class SandPuzzleView {
         
     }
     
-    public void doAction (){
-        int exit = 0;
+    public void doAction () throws PuzzleContorlException{
+        boolean exit = false;
         this.displayDescription();
         do {
             //get the input from the user
@@ -34,18 +35,12 @@ public class SandPuzzleView {
             //sends input to the control layer
             exit = PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
             //value if one of the inputs is out of range
-            if (exit == -1)  {
-                System.out.println("Please enter values between 0 and 12");
+            if (exit == false)  {
+                System.out.println("try agin");
             
             }
-            //value if the scale is unblanced
-            else if (exit == -2) {
-                System.out.println("The scale is unblanced please try again.");
-            }
-            
-        } while (exit != 22);
-        
-        if (exit == 22) {
+        } while (exit != false);
+        if (exit == true) {
             System.out.println("Congratulations you solved the puzzle");
         }
         
@@ -106,8 +101,7 @@ public class SandPuzzleView {
             stringSand = stringSand.trim();
             
             if (stringSand.length() < 0 || stringSand.length() > 2) {
-                System.out.println("Invalid name length - please input a"
-                                +"\nname between 2 and 20 characters long");
+                System.out.println("Invalid length");
                 continue;
             }
             break;
