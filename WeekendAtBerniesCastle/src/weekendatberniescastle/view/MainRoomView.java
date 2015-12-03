@@ -18,7 +18,13 @@ public class MainRoomView extends View {
                 + "\ntest the main entrance and find that the doors have been"
                 + "\nmagically sealed shut. You hear a voice. 'Choose now a path"
                 + "\nfrom one of these doors. Solve my puzzles and you may escape"
-                + "\n... alive. Muahaha!'");
+                + "\n... alive. Muahaha!'"
+                + "\n\n***********************************************************"
+                + "\n\nPlease select one of the following options:"
+                + "\nA - Check Inventory"
+                + "\nS - Move"
+                + "\nD - Help"
+                + "\nR - Exit to Main Menu");
 
     }
 
