@@ -13,42 +13,10 @@ import weekendatberniescastle.exxeptions.PuzzleContorlException;
  *
  * @author Stephen Scott
  */
-public class SandPuzzleView {
-    
-     
-    
-    public void sandPuzzleView(){
-        
-        this.displayDescription();
-        
-        
-    }
-    
-    public void doAction () throws PuzzleContorlException{
-        boolean exit = false;
-        this.displayDescription();
-        do {
-            //get the input from the user
-            int redSand = this.redSand();
-            int blueSand = this.blueSand();
-            int whiteSand = this.whiteSand();
-            //sends input to the control layer
-            exit = PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
-            //value if one of the inputs is out of range
-            if (exit == false)  {
-                System.out.println("try agin");
-            
-            }
-        } while (exit != false);
-        if (exit == true) {
-            System.out.println("Congratulations you solved the puzzle");
-        }
-        
-            
-    }
+public class SandPuzzleView extends View {
 
-    public void displayDescription() {
-        System.out.println("\n\nYou enter this new room, and as your eyes wander "
+    public SandPuzzleView(String message) {
+        super(("\n\nYou enter this new room, and as your eyes wander "
                             + "\nacross the scene you see a scale with three sides."
                             + "\nOn the floor you also see 3 piles of sand each a "
                 + "\ndifferent color. There is Red Sand, White Sand, and"
@@ -56,7 +24,28 @@ public class SandPuzzleView {
                 + "\non the other side of the room. As your eyes catch the"
                 + "\ndoor it slams shut almost as if by magic. A voice"
                 + "\nechos in the room, and you hear Lord Bernie say 'Solve"
-                + "\nthe puzzle " + WeekendAtBerniesCastle.getPlayer());
+                + "\nthe puzzle " + WeekendAtBerniesCastle.getPlayer()));
+    }
+    
+   @Override
+    public boolean doAction(Object obj){
+        boolean exit = false;
+        do {
+            //get the input from the user
+            int redSand = this.redSand();
+            int blueSand = this.blueSand();
+            int whiteSand = this.whiteSand();
+            //sends input to the control layer
+            try {
+                PuzzleControl.checkBalance(redSand, whiteSand, blueSand);
+            } catch (PuzzleContorlException me) {
+                System.out.println(me.getMessage());
+            }
+           
+        } while (exit != false);
+        System.out.println("Congratulations you solved the puzzle");
+        return true;
+     
     }
 
     public int redSand() {
@@ -86,29 +75,7 @@ public class SandPuzzleView {
         return blueSand;
     }
     
-    public String getInput() {
-        boolean valid = false;
-        String stringSand = null;
-       
-        Scanner keyboard = new Scanner(System.in);
-        
-        while(!valid){
-            
-            // prompt for the player's name
-            System.out.println("\nPlease enter a value:");
-                           
-            stringSand = keyboard.nextLine();
-            stringSand = stringSand.trim();
-            
-            if (stringSand.length() < 0 || stringSand.length() > 2) {
-                System.out.println("Invalid length");
-                continue;
-            }
-            break;
-        }
-        
-        return stringSand;
-    }
+    
     
     
 }

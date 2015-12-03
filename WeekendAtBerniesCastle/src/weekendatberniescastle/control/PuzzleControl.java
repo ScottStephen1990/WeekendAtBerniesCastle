@@ -30,10 +30,10 @@ public class PuzzleControl {
 	
                 if (balance == 22){
             return true;
-            }else if(balance != 22) {
+            }else{
 		throw new PuzzleContorlException(balance + " is not the right amout of sand, please try agin.");
             }
-        return true;
+        
     }
 
     public double cannonTarget (int xDeg, int yDeg) {

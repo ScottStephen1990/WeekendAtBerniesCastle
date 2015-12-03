@@ -82,8 +82,8 @@ public class MoveMenuView {
         switch (choice) {
             case 'S':
                 
-                SandPuzzleView sandPuzzle = new SandPuzzleView();
-                sandPuzzle.doAction();
+                SandPuzzleView sandPuzzle = new SandPuzzleView("");
+                sandPuzzle.display();
     
                 break;
            
