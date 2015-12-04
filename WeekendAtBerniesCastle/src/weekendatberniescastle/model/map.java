@@ -21,6 +21,10 @@ public class map implements Serializable {
     //constructor
     public map() {
     }
+
+    public map(int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     //converts the vars to Strings for debuging
 

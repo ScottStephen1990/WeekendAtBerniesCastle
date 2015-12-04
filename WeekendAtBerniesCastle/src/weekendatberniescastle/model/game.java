@@ -21,6 +21,10 @@ public class game implements Serializable {
     public game(double playTime) {
         this.playTime = playTime;
     }
+
+    public game() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     //converts the var to a String for debuging
 
@@ -58,6 +62,18 @@ public class game implements Serializable {
 
     public void setPlayTime(double playTime) {
         this.playTime = playTime;
+    }
+
+    public void setMap(map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setInventory(Inventory[] inventoryList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setPlayer(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
