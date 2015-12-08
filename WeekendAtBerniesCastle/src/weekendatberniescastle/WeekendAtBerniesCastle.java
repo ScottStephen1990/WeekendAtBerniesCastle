@@ -38,6 +38,8 @@ public class WeekendAtBerniesCastle {
                     = new BufferedReader(new InputStreamReader(System.in));
             WeekendAtBerniesCastle.outFile = new PrintWriter(System.out, true);
             
+            StartProgramView startProgramView = new StartProgramView("");
+            startProgramView.display();
             //open log file
             String filePath = "log.txt";
             WeekendAtBerniesCastle.logFile = new PrintWriter(filePath);

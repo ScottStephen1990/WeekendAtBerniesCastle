@@ -9,74 +9,76 @@ import java.util.Scanner;
 import weekendatberniescastle.control.ProgramControl;
 import weekendatberniescastle.model.Player;
 
-
 /**
  *
- * @author Phillip
+ * @author Stephen Scott
  */
-public class StartProgramView {
-    
-    public void startProgram() {
-               
+public class StartProgramView extends View {
+
+    public StartProgramView(String message) {
+        super("\n\n************************************************"
+                + "*                                              *"
+                + "\n* Welcome to your weekend at Bernie's Castle.  *"
+                + "\n* Your adventurous weekend is now begining. I'm *"
+                + "\n* sure you will enjoy all the amenities we have*"
+                + "\n* provided for your entertainment. Our Lord    *"
+                + "\n* Bernie is excited to finally eat... I mean   *"
+                + "\n* meet you. He hopes you will enjoy the        *"
+                + "\n* various wings of his castle. Try not to get  *"
+                + "\n* into too much trouble.                       *"
+                + "\n*                                              *"
+                + "\n************************************************");
+
         //display the banner
-        this.displayBanner();
         String playersName = this.getPlayersName();
-        
+
         Player player = ProgramControl.createPlayer(playersName);
-        
+
         this.displayWelcomeMessage(player);
-        
+
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.display();
-    }  
-
-    private void displayBanner() {
-        System.out.println("\n\n************************************************");
-        
-        System.out.println("*                                              *"
-                       + "\n* Welcome to your weekend at Bernie's Castle.  *"
-                       + "\n* Your adventurous weekend is now begining. I'm *"
-                       + "\n* sure you will enjoy all the amenities we have*"
-                       + "\n* provided for your entertainment. Our Lord    *"
-                       + "\n* Bernie is excited to finally eat... I mean   *"
-                       + "\n* meet you. He hopes you will enjoy the        *"
-                       + "\n* various wings of his castle. Try not to get  *"
-                       + "\n* into too much trouble.                       *"
-                       + "\n*                                              *"
-                       + "\n************************************************");
     }
+
+   
 
     private String getPlayersName() {
         boolean valid = false;
         String playersName = null;
         Scanner keyboard = new Scanner(System.in);
-        
-        while(!valid){
-            
+
+        while (!valid) {
+
             // prompt for the player's name
             System.out.println("Lord Bernie would like to know the name"
-                            +"\nof his guest."
-                            +"\n"
-                            +"\nPlease enter your name below:");
-                           
+                    + "\nof his guest."
+                    + "\n"
+                    + "\nPlease enter your name below:");
+
             playersName = keyboard.nextLine();
             playersName = playersName.trim();
-            
+
             if (playersName.length() < 2 || playersName.length() > 20) {
                 System.out.println("Invalid name length - please input a"
-                                +"\nname between 2 and 20 characters long");
+                        + "\nname between 2 and 20 characters long");
                 continue;
             }
             break;
         }
-        
+
         return playersName;
-    } 
+    }
+
     //welcome Message with players name
     private void displayWelcomeMessage(Player player) {
         System.out.println("\n\n######################################################");
         System.out.println("\tWelcome to Bernie's Castle " + player.getName());
         System.out.println("\tTry not to die... Muhahahaha");
         System.out.println("######################################################");
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
