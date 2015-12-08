@@ -5,7 +5,10 @@
  */
 package weekendatberniescastle.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import weekendatberniescastle.WeekendAtBerniesCastle;
 
 /**
  *
@@ -13,8 +16,11 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface {
     
-    Scanner keyboard = new Scanner(System.in);
+   
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = WeekendAtBerniesCastle.getInFile();
+    protected final PrintWriter console = WeekendAtBerniesCastle.getOutFile();
     
     public View(String message) {
         this.displayMessage = message;
@@ -26,7 +32,7 @@ public abstract class View implements ViewInterface {
         boolean done = false;
         do {
             
-            System.out.println(this.displayMessage);
+            this.console.println(this.displayMessage);
             
             String input = this.getInput();
             input = input.toUpperCase();
@@ -42,23 +48,25 @@ public abstract class View implements ViewInterface {
         boolean valid = false;
         String selection = null;
         
-        
+        try {
         while(!valid){
             
             // prompt for the player's name
             
                            
-            selection = keyboard.nextLine();
+            selection = this.keyboard.readLine();
             selection = selection.trim();
             
             if (selection.length() < 1 || selection.length() >= 2) {
-                System.out.println("Invalid input - please input an"
+                ErrorView.display(this.getClass().getName(),"Invalid input - please input an"
                                 +"\noption from the menu list");
                 continue;
             }
             break;
         }
-        
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
+        }  
         return selection;
     }
 }
