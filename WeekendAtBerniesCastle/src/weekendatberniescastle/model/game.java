@@ -17,13 +17,20 @@ public class game implements Serializable {
     //variables
     private double playTime;
     
+    private Player player;
+    private InvetoryItem[] inventory;
+    private Skeleton skeleton;
+    private LordBernie lordBernie;
+    private map map;
+    
     //consturctor
     public game(double playTime) {
         this.playTime = playTime;
     }
 
+
     public game() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
     //converts the var to a String for debuging
