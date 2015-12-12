@@ -13,11 +13,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import weekendatberniescastle.WeekendAtBerniesCastle;
 import weekendatberniescastle.exxeptions.GameControlException;
-import weekendatberniescastle.model.Inventory;
-import weekendatberniescastle.model.Items;
+import weekendatberniescastle.model.InventoryItem;
+import weekendatberniescastle.model.Item;
+
 import weekendatberniescastle.model.Player;
 import weekendatberniescastle.model.game;
 import weekendatberniescastle.model.map;
+
 
 /**
  *
@@ -31,8 +33,11 @@ public class GameControl {
 
         game.setPlayer(player); //save player in game
 
-        Inventory[] inventoryList = GameControl.createInventoryList();
-        game.setInventory(inventoryList);
+        InventoryItem[] inventoryList = GameControl.createInventoryList();
+        game.setInventoryItem(inventoryList);
+        
+        LordBernie lordBernie = new LordBernie();
+        game.setLordBernie(lordBernie);
 
         map map = MapControl.createMap();
         game.setMap(map);
@@ -40,9 +45,42 @@ public class GameControl {
         MapControl.moveActorsToStartingLocation(map);
     }
 
-    public static Inventory[] createInventoryList() {
-        System.out.println("*** called createInventoryList() in GameControl ***");
-        return null;
+    public static InventoryItem[] createInventoryList() {
+        
+        InventoryItem[] inventory = 
+                new InventoryItem[5];
+        
+        InventoryItem sword = new InventoryItem();
+        sword.setDescription("Sword");
+        sword.setQuantityInStock(0);
+        sword.setRequiredAmount(1);
+        inventory[Item.sword.ordinal()] = sword;
+        
+        InventoryItem boots = new InventoryItem();
+        boots.setDescription("Boots of Haste");
+        boots.setQuantityInStock(0);
+        boots.setRequiredAmount(1);
+        inventory[Item.boots.ordinal()] = boots;
+        
+        InventoryItem breastplate = new InventoryItem();
+        breastplate.setDescription("Breastplate");
+        breastplate.setQuantityInStock(0);
+        breastplate.setRequiredAmount(1);
+        inventory[Item.breastplate.ordinal()] = breastplate;
+        
+        InventoryItem key = new InventoryItem();
+        key.setDescription("Key");
+        key.setQuantityInStock(0);
+        key.setRequiredAmount(1);
+        inventory[Item.key.ordinal()] = key;
+        
+        InventoryItem shield = new InventoryItem();
+        shield.setDescription("Shield");
+        shield.setQuantityInStock(0);
+        shield.setRequiredAmount(1);
+        inventory[Item.shield.ordinal()] = shield;
+        
+        return inventory;
     }
 
     public static void saveGame(game game, String filePath)

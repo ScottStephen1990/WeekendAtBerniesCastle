@@ -18,10 +18,34 @@ public class game implements Serializable {
     private double playTime;
     
     private Player player;
-    private InvetoryItem[] inventory;
+    private InventoryItem[] inventory;
     private Skeleton skeleton;
     private LordBernie lordBernie;
     private map map;
+
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public Skeleton getSkeleton() {
+        return skeleton;
+    }
+
+    public void setSkeleton(Skeleton skeleton) {
+        this.skeleton = skeleton;
+    }
+
+    public LordBernie getLordBernie() {
+        return lordBernie;
+    }
+
+    public void setLordBernie(LordBernie lordBernie) {
+        this.lordBernie = lordBernie;
+    }
     
     //consturctor
     public game(double playTime) {
@@ -80,6 +104,10 @@ public class game implements Serializable {
     }
 
     public void setPlayer(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setInventoryItem(InventoryItem[] inventoryList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
