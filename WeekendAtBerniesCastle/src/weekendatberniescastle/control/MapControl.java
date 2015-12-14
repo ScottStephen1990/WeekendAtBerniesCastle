@@ -5,8 +5,11 @@
  */
 package weekendatberniescastle.control;
 
+import weekendatberniescastle.WeekendAtBerniesCastle;
 import weekendatberniescastle.model.Scene;
+import weekendatberniescastle.model.game;
 import weekendatberniescastle.model.map;
+import weekendatberniescastle.model.openingScene;
 
 /**
  *
@@ -33,7 +36,24 @@ public class MapControl {
     }
 
     private static Scene[] createScenes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        game game = WeekendAtBerniesCastle.getCurrentGame();
+        
+        Scene[] scenes = new Scene[SceneType.values().length];
+        
+        Scene openingScene = new Scene();
+        openingScene.setDescription("\nWelcome to Bernie's Castle. Prepare to be challenged.");
+        openingScene.setMapSymbol(" ST ");
+        openingScene.setBlocked(false);
+        scenes[SceneType.start.ordinal()] = openingScene;
+        
+        Scene puzzleScene = new Scene();
+        puzzleScene.setDescription("\nTime to challenge your mind"
+                + "with a brand new puzzle");
+        puzzleScene.setMapSymbol(" PZ ");
+        puzzleScene.setBlocked(false);
+        scenes[SceneType.puzzle.ordinal()] = puzzleScene;
+        
+        Scene fightScene
     }
 
     private static void assignScenesToLocations(map map, Scene[] scenes) {

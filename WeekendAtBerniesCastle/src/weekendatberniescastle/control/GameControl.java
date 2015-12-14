@@ -15,10 +15,11 @@ import weekendatberniescastle.WeekendAtBerniesCastle;
 import weekendatberniescastle.exxeptions.GameControlException;
 import weekendatberniescastle.model.InventoryItem;
 import weekendatberniescastle.model.Item;
-
 import weekendatberniescastle.model.Player;
 import weekendatberniescastle.model.game;
 import weekendatberniescastle.model.map;
+import weekendatberniescastle.model.LordBernie;
+import weekendatberniescastle.model.Skeleton;
 
 
 /**
@@ -38,6 +39,9 @@ public class GameControl {
         
         LordBernie lordBernie = new LordBernie();
         game.setLordBernie(lordBernie);
+        
+        Skeleton skeleton = new Skeleton();
+        game.setSkeleton(skeleton);
 
         map map = MapControl.createMap();
         game.setMap(map);

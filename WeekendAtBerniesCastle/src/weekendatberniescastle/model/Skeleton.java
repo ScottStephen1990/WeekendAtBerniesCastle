@@ -9,7 +9,7 @@ package weekendatberniescastle.model;
  *
  * @author Phillip
  */
-class Skeleton {
+public class Skeleton {
     
     int attack;
     int health;
@@ -57,6 +57,8 @@ class Skeleton {
     }
 
     public Skeleton() {
+        this.attack = 2;
+        this.health = 10;
     }
         
 }

@@ -6,6 +6,7 @@
 package weekendatberniescastle.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -14,30 +15,26 @@ import java.util.Objects;
  */
 public class location implements Serializable {
     
-    //variables
     private double row;
     private double column;
-    private double visited;
+    private boolean visited;
     private String event;
-    
-    //constructor
+    private Scene scene;
+    private ArrayList<Actor> actors;
 
-    public location() {
-    }
-
-    //this converts the vars to strings for debuging the game.
     @Override
     public String toString() {
-        return "location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", event=" + event + '}';
+        return "location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", event=" + event + ", scene=" + scene + ", actors=" + actors + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 71 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
-        hash = 71 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
-        hash = 71 * hash + (int) (Double.doubleToLongBits(this.visited) ^ (Double.doubleToLongBits(this.visited) >>> 32));
-        hash = 71 * hash + Objects.hashCode(this.event);
+        int hash = 3;
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
+        hash = 59 * hash + (this.visited ? 1 : 0);
+        hash = 59 * hash + Objects.hashCode(this.event);
+        hash = 59 * hash + Objects.hashCode(this.scene);
         return hash;
     }
 
@@ -56,16 +53,18 @@ public class location implements Serializable {
         if (Double.doubleToLongBits(this.column) != Double.doubleToLongBits(other.column)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.visited) != Double.doubleToLongBits(other.visited)) {
+        if (this.visited != other.visited) {
             return false;
         }
         if (!Objects.equals(this.event, other.event)) {
             return false;
         }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
         return true;
     }
     
-    //getters and seteers
     public double getRow() {
         return row;
     }
@@ -82,11 +81,11 @@ public class location implements Serializable {
         this.column = column;
     }
 
-    public double getVisited() {
+    public boolean isVisited() {
         return visited;
     }
 
-    public void setVisited(double visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
 
@@ -97,6 +96,31 @@ public class location implements Serializable {
     public void setEvent(String event) {
         this.event = event;
     }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
+
+    //variables
+    public void setActors(ArrayList<Actor> actors) {
+        this.actors = actors;
+    }
+    
+    
+    //constructor
+
+    public location() {
+    }
+
+    //this converts the vars to strings for debuging the game.
     
     
 }

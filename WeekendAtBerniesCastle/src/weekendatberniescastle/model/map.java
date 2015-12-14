@@ -15,15 +15,36 @@ import java.util.Objects;
 public class map implements Serializable {
     
     //variables
-    private double rowCount;
-    private double columnCount;
+    private int rowCount;
+    private int columnCount;
+    private location[][] locations;
     
     //constructor
     public map() {
     }
 
-    public map(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public map(int rowCount, int columnCount) {
+       if (rowCount < 1 || columnCount < 1) {
+           System.out.println("The number of rows and columns must be > zero");
+           return;
+       }
+       
+       this.rowCount = rowCount;
+       this.columnCount = columnCount;
+       
+       this.locations = new location[rowCount][columnCount];
+       
+       for (int row = 0; row < rowCount; row++) {
+           for(int column = 0; column < columnCount; column++){
+               
+               location location = new location();
+               location.setColumn(column);
+               location.setRow(row);
+               location.setVisited(false);
+               
+               locations[row][column] = location;
+           }
+       }
     }
     
     //converts the vars to Strings for debuging
@@ -64,7 +85,7 @@ public class map implements Serializable {
         return rowCount;
     }
 
-    public void setRowCount(double rowCount) {
+    public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
 
@@ -72,7 +93,7 @@ public class map implements Serializable {
         return columnCount;
     }
 
-    public void setColumnCount(double columnCount) {
+    public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
     }
     

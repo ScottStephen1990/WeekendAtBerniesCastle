@@ -9,11 +9,12 @@ package weekendatberniescastle.model;
  *
  * @author Phillip
  */
-class LordBernie {
+public class LordBernie {
     
     int health;
     int defense;
     int attack;
+    
 
     @Override
     public int hashCode() {
@@ -58,6 +59,11 @@ class LordBernie {
     }
 
     public LordBernie() {
+        this.attack = 3;
+        this.defense = 5;
+        this.health = 50;
+        
     }
   
+    
 }
