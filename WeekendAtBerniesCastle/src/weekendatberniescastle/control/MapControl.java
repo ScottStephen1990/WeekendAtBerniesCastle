@@ -9,7 +9,7 @@ import weekendatberniescastle.WeekendAtBerniesCastle;
 import weekendatberniescastle.model.Scene;
 import weekendatberniescastle.model.SceneType;
 import weekendatberniescastle.model.game;
-import weekendatberniescastle.model.location;
+import weekendatberniescastle.model.Location;
 import weekendatberniescastle.model.map;
 import weekendatberniescastle.model.openingScene;
 
@@ -106,7 +106,7 @@ public class MapControl {
     }
 
     private static void assignScenesToLocations(map map, Scene[] scenes) {
-        location[][] locations = map.getLocations(); 
+        Location[][] locations = map.getLocations(); 
         
         // start point
         locations[0][0].setScene(scenes[SceneType.start.ordinal()]);

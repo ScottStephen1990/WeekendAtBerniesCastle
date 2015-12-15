@@ -18,7 +18,7 @@ public class map implements Serializable {
     //variables
     private int rowCount;
     private int columnCount;
-    private location[][] locations;
+    private Location[][] locations;
     
     //constructor
     public map() {
@@ -40,11 +40,11 @@ public class map implements Serializable {
         this.columnCount = columnCount;
     }
 
-    public location[][] getLocations() {
+    public Location[][] getLocations() {
         return locations;
     }
 
-    public void setLocations(location[][] locations) {
+    public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
 
@@ -93,12 +93,12 @@ public class map implements Serializable {
        this.rowCount = rowCount;
        this.columnCount = columnCount;
        
-       this.locations = new location[rowCount][columnCount];
+       this.locations = new Location[rowCount][columnCount];
        
        for (int row = 0; row < rowCount; row++) {
            for(int column = 0; column < columnCount; column++){
                
-               location location = new location();
+               Location location = new Location();
                location.setColumn(column);
                location.setRow(row);
                location.setVisited(false);
