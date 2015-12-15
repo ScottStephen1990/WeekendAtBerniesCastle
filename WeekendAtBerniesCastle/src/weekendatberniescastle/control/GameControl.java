@@ -35,7 +35,7 @@ public class GameControl {
         game.setPlayer(player); //save player in game
 
         InventoryItem[] inventoryList = GameControl.createInventoryList();
-        game.setInventoryItem(inventoryList);
+        game.setInventory(inventoryList);
         
         LordBernie lordBernie = new LordBernie();
         game.setLordBernie(lordBernie);

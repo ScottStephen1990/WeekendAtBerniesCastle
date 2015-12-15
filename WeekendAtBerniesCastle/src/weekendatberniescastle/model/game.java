@@ -6,6 +6,7 @@
 package weekendatberniescastle.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -13,15 +14,39 @@ import java.util.Objects;
  * @author MIc
  */
 public class game implements Serializable {
-    
+
     //variables
     private double playTime;
-    
+
     private Player player;
     private InventoryItem[] inventory;
     private Skeleton skeleton;
     private LordBernie lordBernie;
     private map map;
+
+    public double getPlayTime() {
+        return playTime;
+    }
+
+    public void setPlayTime(double playTime) {
+        this.playTime = playTime;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public map getMap() {
+        return map;
+    }
+
+    public void setMap(map map) {
+        this.map = map;
+    }
 
     public InventoryItem[] getInventory() {
         return inventory;
@@ -46,28 +71,25 @@ public class game implements Serializable {
     public void setLordBernie(LordBernie lordBernie) {
         this.lordBernie = lordBernie;
     }
-    
+
     //consturctor
     public game(double playTime) {
         this.playTime = playTime;
     }
 
-
     public game() {
-        
-    }
-    
-    //converts the var to a String for debuging
 
-    @Override
-    public String toString() {
-        return "game{" + "playTime=" + playTime + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + (int) (Double.doubleToLongBits(this.playTime) ^ (Double.doubleToLongBits(this.playTime) >>> 32));
+        hash = 73 * hash + (int) (Double.doubleToLongBits(this.playTime) ^ (Double.doubleToLongBits(this.playTime) >>> 32));
+        hash = 73 * hash + Objects.hashCode(this.player);
+        hash = 73 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 73 * hash + Objects.hashCode(this.skeleton);
+        hash = 73 * hash + Objects.hashCode(this.lordBernie);
+        hash = 73 * hash + Objects.hashCode(this.map);
         return hash;
     }
 
@@ -83,33 +105,29 @@ public class game implements Serializable {
         if (Double.doubleToLongBits(this.playTime) != Double.doubleToLongBits(other.playTime)) {
             return false;
         }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.inventory, other.inventory)) {
+            return false;
+        }
+        if (!Objects.equals(this.skeleton, other.skeleton)) {
+            return false;
+        }
+        if (!Objects.equals(this.lordBernie, other.lordBernie)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
         return true;
     }
-    
-    //getter and setter
-    public double getPlayTime() {
-        return playTime;
+
+    @Override
+    public String toString() {
+        return "game{" + "playTime=" + playTime + ", player=" + player + ", inventory=" + inventory + ", skeleton=" + skeleton + ", lordBernie=" + lordBernie + ", map=" + map + '}';
     }
 
-    public void setPlayTime(double playTime) {
-        this.playTime = playTime;
-    }
+   
 
-    public void setMap(map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setInventory(Inventory[] inventoryList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setPlayer(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setInventoryItem(InventoryItem[] inventoryList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }

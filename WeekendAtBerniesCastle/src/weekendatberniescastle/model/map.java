@@ -6,6 +6,7 @@
 package weekendatberniescastle.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -22,6 +23,66 @@ public class map implements Serializable {
     //constructor
     public map() {
     }
+    
+    public double getRowCount() {
+        return rowCount;
+    }
+
+    public void setRowCount(int rowCount) {
+        this.rowCount = rowCount;
+    }
+
+    public double getColumnCount() {
+        return columnCount;
+    }
+
+    public void setColumnCount(int columnCount) {
+        this.columnCount = columnCount;
+    }
+
+    public location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(location[][] locations) {
+        this.locations = locations;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + this.rowCount;
+        hash = 59 * hash + this.columnCount;
+        hash = 59 * hash + Arrays.deepHashCode(this.locations);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final map other = (map) obj;
+        if (this.rowCount != other.rowCount) {
+            return false;
+        }
+        if (this.columnCount != other.columnCount) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + ", locations=" + locations + '}';
+    }
+    
 
     public map(int rowCount, int columnCount) {
        if (rowCount < 1 || columnCount < 1) {
@@ -47,55 +108,9 @@ public class map implements Serializable {
        }
     }
     
-    //converts the vars to Strings for debuging
-
-    @Override
-    public String toString() {
-        return "map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.rowCount) ^ (Double.doubleToLongBits(this.rowCount) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.columnCount) ^ (Double.doubleToLongBits(this.columnCount) >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final map other = (map) obj;
-        if (Double.doubleToLongBits(this.rowCount) != Double.doubleToLongBits(other.rowCount)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.columnCount) != Double.doubleToLongBits(other.columnCount)) {
-            return false;
-        }
-        return true;
-    }
+    
     
     //getters and setters
-    public double getRowCount() {
-        return rowCount;
-    }
-
-    public void setRowCount(int rowCount) {
-        this.rowCount = rowCount;
-    }
-
-    public double getColumnCount() {
-        return columnCount;
-    }
-
-    public void setColumnCount(int columnCount) {
-        this.columnCount = columnCount;
-    }
     
     
 }

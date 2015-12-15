@@ -15,61 +15,23 @@ import java.util.Objects;
  */
 public class location implements Serializable {
     
-    private double row;
-    private double column;
-    private boolean visited;
-    private String event;
-    private Scene scene;
-    private ArrayList<Actor> actors;
+    public int row;
+    public int column;
+    public boolean visited;
+    public String event;
+    public Scene scene;
+    public ArrayList<Actor> actors;
 
-    @Override
-    public String toString() {
-        return "location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", event=" + event + ", scene=" + scene + ", actors=" + actors + '}';
+    public location() {
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
-        hash = 59 * hash + (this.visited ? 1 : 0);
-        hash = 59 * hash + Objects.hashCode(this.event);
-        hash = 59 * hash + Objects.hashCode(this.scene);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final location other = (location) obj;
-        if (Double.doubleToLongBits(this.row) != Double.doubleToLongBits(other.row)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.column) != Double.doubleToLongBits(other.column)) {
-            return false;
-        }
-        if (this.visited != other.visited) {
-            return false;
-        }
-        if (!Objects.equals(this.event, other.event)) {
-            return false;
-        }
-        if (!Objects.equals(this.scene, other.scene)) {
-            return false;
-        }
-        return true;
-    }
+    
     
     public double getRow() {
         return row;
     }
 
-    public void setRow(double row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
@@ -77,7 +39,7 @@ public class location implements Serializable {
         return column;
     }
 
-    public void setColumn(double column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 
@@ -113,14 +75,54 @@ public class location implements Serializable {
     public void setActors(ArrayList<Actor> actors) {
         this.actors = actors;
     }
-    
-    
-    //constructor
 
-    public location() {
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 61 * hash + this.row;
+        hash = 61 * hash + this.column;
+        hash = 61 * hash + (this.visited ? 1 : 0);
+        hash = 61 * hash + Objects.hashCode(this.event);
+        hash = 61 * hash + Objects.hashCode(this.scene);
+        hash = 61 * hash + Objects.hashCode(this.actors);
+        return hash;
     }
 
-    //this converts the vars to strings for debuging the game.
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final location other = (location) obj;
+        if (this.row != other.row) {
+            return false;
+        }
+        if (this.column != other.column) {
+            return false;
+        }
+        if (this.visited != other.visited) {
+            return false;
+        }
+        if (!Objects.equals(this.event, other.event)) {
+            return false;
+        }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
+        if (!Objects.equals(this.actors, other.actors)) {
+            return false;
+        }
+        return true;
+    }
+
     
+    @Override
+    public String toString() {
+        return "location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", event=" + event + ", scene=" + scene + ", actors=" + actors + '}';
+    }
     
+  
 }

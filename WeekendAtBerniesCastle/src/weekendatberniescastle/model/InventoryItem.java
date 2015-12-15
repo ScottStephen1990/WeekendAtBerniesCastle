@@ -18,6 +18,11 @@ public class InventoryItem {
     String description;
     int requiredAmount;
 
+    public InventoryItem() {
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -74,9 +79,7 @@ public class InventoryItem {
     }
     
 
-    public InventoryItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     public Object getInventoryItem() {
         return InventoryItem;
