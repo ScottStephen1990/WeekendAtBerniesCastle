@@ -14,7 +14,7 @@ import weekendatberniescastle.WeekendAtBerniesCastle;
 import weekendatberniescastle.control.GameControl;
 import weekendatberniescastle.control.WriteInventoryToArrayControl;
 import weekendatberniescastle.model.InventoryItem;
-import weekendatberniescastle.model.Location;
+import weekendatberniescastle.model.Locationn;
 import weekendatberniescastle.model.map;
 
 /**
@@ -65,7 +65,7 @@ public class GameMenuView extends View {
     }
 
     public void displayMap(map map) {
-        Location[][] locations = map.getLocations();
+        Locationn[][] locations = map.getLocations();
 
         System.out.println("\n\n---------------THE CASTLE--------------");
         System.out.println("  1  2  3  4  5  ");

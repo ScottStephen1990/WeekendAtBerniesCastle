@@ -11,7 +11,7 @@ import weekendatberniescastle.model.Actors;
 import weekendatberniescastle.model.Scene;
 import weekendatberniescastle.model.SceneType;
 import weekendatberniescastle.model.game;
-import weekendatberniescastle.model.Location;
+import weekendatberniescastle.model.Locationn;
 import weekendatberniescastle.model.map;
 import weekendatberniescastle.model.openingScene;
 
@@ -107,7 +107,7 @@ public class MapControl {
     }
 
     private static void assignScenesToLocations(map map, Scene[] scenes) {
-        Location[][] locations = map.getLocations(); 
+        Locationn[][] locations = map.getLocations(); 
         
         // start point
         locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
@@ -174,7 +174,7 @@ public class MapControl {
     }
     
     static void moveActorsToStartingLocation(map map, Actors[] actorList) {
-         Location[][] locations = map.getLocations();
+         Locationn[][] locations = map.getLocations();
          
          locations[0][0].setActor(actorList[Actor.Charles.ordinal()]);
     }
