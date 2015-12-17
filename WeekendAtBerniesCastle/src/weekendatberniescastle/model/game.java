@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author MIc
+ * @author Stephen
  */
 public class game implements Serializable {
 
@@ -23,6 +23,18 @@ public class game implements Serializable {
     private Skeleton skeleton;
     private LordBernie lordBernie;
     private map map;
+    private Actors[] actor;
+
+    public game() {
+    }
+
+    public Actors[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actors[] actor) {
+        this.actor = actor;
+    }
 
     public double getPlayTime() {
         return playTime;
@@ -77,19 +89,16 @@ public class game implements Serializable {
         this.playTime = playTime;
     }
 
-    public game() {
-
-    }
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + (int) (Double.doubleToLongBits(this.playTime) ^ (Double.doubleToLongBits(this.playTime) >>> 32));
-        hash = 73 * hash + Objects.hashCode(this.player);
-        hash = 73 * hash + Arrays.deepHashCode(this.inventory);
-        hash = 73 * hash + Objects.hashCode(this.skeleton);
-        hash = 73 * hash + Objects.hashCode(this.lordBernie);
-        hash = 73 * hash + Objects.hashCode(this.map);
+        int hash = 3;
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.playTime) ^ (Double.doubleToLongBits(this.playTime) >>> 32));
+        hash = 53 * hash + Objects.hashCode(this.player);
+        hash = 53 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 53 * hash + Objects.hashCode(this.skeleton);
+        hash = 53 * hash + Objects.hashCode(this.lordBernie);
+        hash = 53 * hash + Objects.hashCode(this.map);
+        hash = 53 * hash + Arrays.deepHashCode(this.actor);
         return hash;
     }
 
@@ -120,14 +129,15 @@ public class game implements Serializable {
         if (!Objects.equals(this.map, other.map)) {
             return false;
         }
+        if (!Arrays.deepEquals(this.actor, other.actor)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "game{" + "playTime=" + playTime + ", player=" + player + ", inventory=" + inventory + ", skeleton=" + skeleton + ", lordBernie=" + lordBernie + ", map=" + map + '}';
+        return "game{" + "playTime=" + playTime + ", player=" + player + ", inventory=" + inventory + ", skeleton=" + skeleton + ", lordBernie=" + lordBernie + ", map=" + map + ", actor=" + actor + '}';
     }
-
-   
 
 }

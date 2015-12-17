@@ -6,6 +6,8 @@
 package weekendatberniescastle.control;
 
 import weekendatberniescastle.WeekendAtBerniesCastle;
+import weekendatberniescastle.model.Actor;
+import weekendatberniescastle.model.Actors;
 import weekendatberniescastle.model.Scene;
 import weekendatberniescastle.model.SceneType;
 import weekendatberniescastle.model.game;
@@ -27,15 +29,14 @@ public class MapControl {
         Scene[] scenes = createScenes();
         
         // assign the different scenes to locations in the map
+        Actors[] actorList = createActorList();
         
         assignScenesToLocations(map, scenes);
         
         return map;
     }
 
-    static void moveActorsToStartingLocation(map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     private static Scene[] createScenes() {
         game game = WeekendAtBerniesCastle.getCurrentGame();
@@ -138,6 +139,43 @@ public class MapControl {
         
     }
     
+    public static Actors[] createActorList() {
+
+        Actors[] actor
+                = new Actors[5];
+
+        Actors charles = new Actors();
+        charles.setDescription("Charles - The Butler of the castle");
+        charles.setDialogue("Here's lookin at you kid");
+        actor[Actor.Charles.ordinal()] = charles;
+
+        Actors gwen = new Actors();
+        gwen.setDescription("Gwen - The Maid");
+        gwen.setDialogue("Need something cleaned?");
+        actor[Actor.Gwen.ordinal()] = gwen;
+
+        Actors terry = new Actors();
+        terry.setDescription("Terry - The mad scientist");
+        terry.setDialogue("heh heh heh");
+        actor[Actor.Terry.ordinal()] = terry;
+
+        Actors camille = new Actors();
+        camille.setDescription("Charles - The pretty girl");
+        camille.setDialogue("You need somethin' hun?");
+        actor[Actor.Camille.ordinal()] = camille;
+
+        Actors jamall = new Actors();
+        jamall.setDescription("Jamall - no one really knows why he's here");
+        charles.setDialogue("Hey, uh am I at the wrong house?");
+        actor[Actor.Jamall.ordinal()] = jamall;
+
+        return actor;
+
+    }
     
-    
+    static void moveActorsToStartingLocation(map map, Actors[] actorList) {
+         Location[][] locations = map.getLocations();
+         
+         locations[0][0].setActor(actorList[Actor.Charles.ordinal()]);
+    }
 }
