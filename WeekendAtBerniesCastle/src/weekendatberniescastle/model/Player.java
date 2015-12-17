@@ -16,13 +16,16 @@ public class Player implements Serializable {
     
     // the instance variables
     private String name;
-    private double attack;
-    private double defense;
-    private double hitPoints;
+    public double attack;
+    public double defense;
+    public double hitPoints;
 
     // the constructor for the player
 
     public Player() {
+        this.attack = 2;
+        this.defense = 1;
+        this.hitPoints = 20;
     }
 
     @Override

@@ -17,7 +17,7 @@ import weekendatberniescastle.view.StartProgramView;
 
 /**
  *
- * @author Phillip
+ * @author Stephen
  */
 public class WeekendAtBerniesCastle {
 
@@ -28,6 +28,7 @@ public class WeekendAtBerniesCastle {
     private static BufferedReader inFile = null;
 
     private static PrintWriter logFile = null;
+    
 
     public static void main(String[] args) {
        
@@ -75,6 +76,8 @@ public class WeekendAtBerniesCastle {
 
     }
 
+    
+    
     public static PrintWriter getLogFile() {
         return logFile;
     }

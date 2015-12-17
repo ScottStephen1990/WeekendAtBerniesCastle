@@ -6,6 +6,7 @@
 package weekendatberniescastle.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -15,29 +16,44 @@ import java.util.Objects;
 public class map implements Serializable {
     
     //variables
-    private double rowCount;
-    private double columnCount;
+    private int rowCount;
+    private int columnCount;
+    private Locationn[][] locations;
     
     //constructor
     public map() {
     }
-
-    public map(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
-    //converts the vars to Strings for debuging
+    public double getRowCount() {
+        return rowCount;
+    }
 
-    @Override
-    public String toString() {
-        return "map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
+    public void setRowCount(int rowCount) {
+        this.rowCount = rowCount;
+    }
+
+    public double getColumnCount() {
+        return columnCount;
+    }
+
+    public void setColumnCount(int columnCount) {
+        this.columnCount = columnCount;
+    }
+
+    public Locationn[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Locationn[][] locations) {
+        this.locations = locations;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.rowCount) ^ (Double.doubleToLongBits(this.rowCount) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.columnCount) ^ (Double.doubleToLongBits(this.columnCount) >>> 32));
+        int hash = 5;
+        hash = 59 * hash + this.rowCount;
+        hash = 59 * hash + this.columnCount;
+        hash = 59 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
 
@@ -50,31 +66,51 @@ public class map implements Serializable {
             return false;
         }
         final map other = (map) obj;
-        if (Double.doubleToLongBits(this.rowCount) != Double.doubleToLongBits(other.rowCount)) {
+        if (this.rowCount != other.rowCount) {
             return false;
         }
-        if (Double.doubleToLongBits(this.columnCount) != Double.doubleToLongBits(other.columnCount)) {
+        if (this.columnCount != other.columnCount) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
             return false;
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + ", locations=" + locations + '}';
+    }
+    
+
+    public map(int rowCount, int columnCount) {
+       if (rowCount < 1 || columnCount < 1) {
+           System.out.println("The number of rows and columns must be > zero");
+           return;
+       }
+       
+       this.rowCount = rowCount;
+       this.columnCount = columnCount;
+       
+       this.locations = new Locationn[rowCount][columnCount];
+       
+       for (int row = 0; row < rowCount; row++) {
+           for(int column = 0; column < columnCount; column++){
+               
+               Locationn location = new Locationn();
+               location.setColumn(column);
+               location.setRow(row);
+               location.setVisited(false);
+               
+               locations[row][column] = location;
+           }
+       }
+    }
+    
+    
     
     //getters and setters
-    public double getRowCount() {
-        return rowCount;
-    }
-
-    public void setRowCount(double rowCount) {
-        this.rowCount = rowCount;
-    }
-
-    public double getColumnCount() {
-        return columnCount;
-    }
-
-    public void setColumnCount(double columnCount) {
-        this.columnCount = columnCount;
-    }
     
     
 }

@@ -18,54 +18,16 @@ public class MainRoomView extends View {
                 + "\ntest the main entrance and find that the doors have been"
                 + "\nmagically sealed shut. You hear a voice. 'Choose now a path"
                 + "\nfrom one of these doors. Solve my puzzles and you may escape"
-                + "\n... alive. Muahaha!'"
-                + "\n\n***********************************************************"
-                + "\n\nPlease select one of the following options:"
-                + "\nA - Check Inventory"
-                + "\nS - Move"
-                + "\nD - Help"
-                + "\nR - Exit to Main Menu");
-
+                + "\n... alive. Muahaha!'");
+        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
     }
 
     @Override
     public boolean doAction(Object obj) {
-
-        char choice = (char) obj;
-        switch (choice) {
-            case 'A':
-                this.checkInventory();
-                break;
-
-            case 'S':
-                this.move();
-                break;
-
-            case 'D':
-                this.help();
-                break;
-
-            case 'R':
-
-            default:
-                System.out.println("\n*** Invalid Selection ***");
-                break;
-        }
-        return false;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void move() {
-        MoveMenuView moveMenu = new MoveMenuView();
-        moveMenu.moveMenu();
-    }
-
-    public void help() {
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.display();
-    }
-
-    public void checkInventory() {
-        System.out.println("The Inventory Function is currently unavailable");
-    }
-
+    
 }
