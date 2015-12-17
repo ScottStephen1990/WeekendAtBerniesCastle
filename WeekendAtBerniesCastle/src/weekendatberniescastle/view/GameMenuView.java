@@ -27,7 +27,8 @@ public class GameMenuView extends View {
         super("\n***********************************************************"
                 + "\n\nPlease select one of the following options:"
                 + "\nA - Check Inventory"
-                + "\nS - Move"
+                + "\nS - Map"
+                + "\nM - Move to new room"
                 + "\nD - Help"
                 + "\nP - print inventory to file"
                 + "\nR - Exit to Main Menu");
@@ -49,6 +50,10 @@ public class GameMenuView extends View {
 
             case 'D':
                 this.help();
+                break;
+                
+            case 'M':
+                this.move();
                 break;
 
             case 'P':
@@ -124,5 +129,10 @@ public class GameMenuView extends View {
             Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
        
+    }
+
+    private void move() {
+        MoveMenuView moveMenu = new MoveMenuView();
+        moveMenu.moveMenu();
     }
 }
